@@ -1,22 +1,19 @@
 import {NewJoke} from "../NewJoke/NewJoke";
 import {FavoriteJoke} from "../FavoritJoke/FavoriteJoke";
 import './Root.css';
-
-export const generate = () => {
-    fetch('https://api.chucknorris.io/jokes/random')
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            console.log(data)
-        })
-}
+import {useState} from "react";
 
 export const Root = () => {
+    const [jokes, setJokes] = useState<string[]>([]);
+
+    const addJokeToFavorite = (joke: any) => {
+        setJokes([...jokes, joke])
+    }
+
     return (
         <div className="root">
-            <NewJoke />
-            <FavoriteJoke jokeList={['Joke 1', 'Joke 2']}/>
+            <NewJoke  addJoke={addJokeToFavorite}/>
+            <FavoriteJoke jokeList={jokes}/>
         </div>
     )
 }

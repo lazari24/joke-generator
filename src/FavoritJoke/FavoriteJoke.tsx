@@ -3,14 +3,14 @@ export interface FavoriteJokeProps {
 }
 
 export const FavoriteJoke = ({jokeList}: FavoriteJokeProps) => {
-    const JokeList = jokeList.map((joke) => {
-        return <li>{joke}</li>
+    const list = jokeList.map((joke) => {
+        return <li key={joke}>{joke}</li>
     })
-    
+
     return (
-        <div>
+        <div className="favorite-joke">
             <div>Favorite joke block</div>
-            {JokeList}
+            {list}
         </div>
     )
 }
