@@ -1,0 +1,9 @@
+.root-new-joke {
+    display: flex;
+    flex-direction: column;
+}
+.generate-joke-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
